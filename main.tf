@@ -18,6 +18,7 @@ resource "google_container_cluster" "cluster" {
   # network config
   network    = var.network
   subnetwork = var.subnetwork
+
   ip_allocation_policy {
     cluster_secondary_range_name  = var.secondary_range_pods
     services_secondary_range_name = var.secondary_range_services
@@ -26,6 +27,7 @@ resource "google_container_cluster" "cluster" {
     enable_private_nodes    = true
     enable_private_endpoint = false
     master_ipv4_cidr_block  = var.master_ipv4_cidr_block
+
     master_global_access_config {
       enabled = false
     }
@@ -43,13 +45,13 @@ resource "google_container_cluster" "cluster" {
   }
 
 
-  # Use CloudDNS for routing
+  # Use CloudDNS for routing (Probably sohuld be handled at the network level')
   # Docs: https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-dns#dns-scopes
-  dns_config {
-    cluster_dns                   = "CLOUD_DNS"
-    cluster_dns_scope             = "CLUSTER_SCOPE"
-    additive_vpc_scope_dns_domain = "${var.location}.${var.project_id}"
-  }
+  # dns_config {
+  #   cluster_dns                   = "CLOUD_DNS"
+  #   cluster_dns_scope             = "CLUSTER_SCOPE"
+  #   additive_vpc_scope_dns_domain = "${var.location}.${var.project_id}"
+  # }
 
   addons_config {
     dns_cache_config {
