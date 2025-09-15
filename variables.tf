@@ -133,8 +133,8 @@ variable "workload_identity_profiles" {
   default = {}
 }
 
-variable "secondary_region" {
+variable "primary_cluster" {
   type        = bool
-  description = "Set to true if this is used for a non-default region deployment. This is needed to we don't recreate the workloadIdentityUser IAM binding each time we create a new region."
+  description = "Set to false if this is used for a non-default region deployment. This is needed to we don't recreate the workloadIdentityUser IAM binding each time we create a new region."
   default     = false
 }
