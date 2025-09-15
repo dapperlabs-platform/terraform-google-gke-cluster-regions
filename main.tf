@@ -34,7 +34,7 @@ resource "google_container_cluster" "cluster" {
   }
 
   # Terraform specific config
-  deletion_protection = var.primary_cluster == false ? true : false
+  deletion_protection = var.primary_cluster
 
   # Auth config
   authenticator_groups_config {
