@@ -16,7 +16,7 @@ locals {
 # Allow the KSA to impersonate the GSA by creating IAM policy binding between them
 resource "google_service_account_iam_member" "main" {
   # We dont want to create these IAM bindings for each region, only the original cluster in an environment
-  for_each = var.secondary_region == true ? {} : local.workload_identity_profiles
+  for_each = var.primary_cluster == false ? {} : local.workload_identity_profiles
   depends_on = [
     google_container_cluster.cluster,
   ]
