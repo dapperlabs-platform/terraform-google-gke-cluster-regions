@@ -30,7 +30,7 @@ resource "google_container_cluster" "cluster" {
     master_global_access_config {
       enabled = var.master_global_access_config
     }
-
+  }
   # Terraform specific config
   deletion_protection = var.primary_cluster
 
