@@ -27,11 +27,9 @@ resource "google_container_cluster" "cluster" {
     enable_private_nodes    = true
     enable_private_endpoint = false
     master_ipv4_cidr_block  = var.master_ipv4_cidr_block
-
     master_global_access_config {
-      enabled = false
+      enabled = var.master_global_access_config
     }
-  }
 
   # Terraform specific config
   deletion_protection = var.primary_cluster
