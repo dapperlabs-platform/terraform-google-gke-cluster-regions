@@ -24,5 +24,5 @@ resource "google_secret_manager_secret" "gke_cluster_endpoint" {
 
 resource "google_secret_manager_secret_version" "gke_cluster_endpoint" {
   secret      = google_secret_manager_secret.gke_cluster_endpoint.id
-  secret_data = google_container_cluster.cluster.endpoint
+  secret_data = google_container_cluster.cluster.private_cluster_config[0].private_endpoint
 }
