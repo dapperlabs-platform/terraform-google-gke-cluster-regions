@@ -78,6 +78,12 @@ variable "logging_service" {
   default     = "none"
 }
 
+variable "monitoring_service" {
+  description = "Monitoring service"
+  type        = string
+  default     = "none"
+}
+
 variable "node_locations" {
   description = "Zones in which the cluster's nodes are located."
   type        = list(string)
