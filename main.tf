@@ -6,6 +6,7 @@ resource "google_container_cluster" "cluster" {
   location          = var.location
   resource_labels   = var.labels
   datapath_provider = var.enable_dataplane_v2 ? "ADVANCED_DATAPATH" : "DATAPATH_PROVIDER_UNSPECIFIED"
+  logging_service   = var.logging_service
 
   # node config
   node_locations           = length(var.node_locations) == 0 ? null : var.node_locations
