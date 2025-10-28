@@ -72,6 +72,12 @@ variable "network" {
   type        = string
 }
 
+variable "logging_service" {
+  description = "Logging service for the cluster."
+  type        = string
+  default     = "none"
+}
+
 variable "node_locations" {
   description = "Zones in which the cluster's nodes are located."
   type        = list(string)
