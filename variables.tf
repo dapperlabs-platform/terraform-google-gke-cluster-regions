@@ -154,5 +154,5 @@ variable "primary_cluster" {
 variable "master_global_access_config" {
   description = "Enable master global access config."
   type        = bool
-  default     = false
+  default     = true
 }
