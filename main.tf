@@ -44,6 +44,10 @@ resource "google_container_cluster" "cluster" {
     workload_pool = "${var.project_id}.svc.id.goog"
   }
 
+  binary_authorization {
+    evaluation_mode = var.binary_authorization_mode
+  }
+
 
   # Use CloudDNS for routing (Probably sohuld be handled at the network level')
   # Docs: https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-dns#dns-scopes

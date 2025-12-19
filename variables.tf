@@ -156,3 +156,8 @@ variable "master_global_access_config" {
   type        = bool
   default     = false
 }
+
+variable "binary_authorization_mode" {
+  type    = string
+  default = "DISABLED"
+}
