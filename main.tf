@@ -18,8 +18,9 @@ resource "google_container_cluster" "cluster" {
   default_max_pods_per_node = var.default_max_pods_per_node
 
   # network config
-  network    = var.network
-  subnetwork = var.subnetwork
+  network                  = var.network
+  subnetwork               = var.subnetwork
+  enable_l4_ilb_subsetting = var.enable_l4_ilb_subsetting
 
   ip_allocation_policy {
     cluster_secondary_range_name  = var.secondary_range_pods
