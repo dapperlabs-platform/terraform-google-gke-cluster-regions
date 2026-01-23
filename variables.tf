@@ -156,3 +156,9 @@ variable "master_global_access_config" {
   type        = bool
   default     = false
 }
+
+variable "enable_l4_ilb_subsetting" {
+  description = "Enable L4 ILB subsetting."
+  type        = bool
+  default     = false
+}
