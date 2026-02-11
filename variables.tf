@@ -16,6 +16,7 @@ variable "addons" {
     cloudrun_config                       = optional(bool, false)
     dns_cache_config                      = optional(bool, false)
     gce_persistent_disk_csi_driver_config = optional(bool, true)
+    gke_backup_agent_config               = optional(bool, false)
   })
   default = {}
 }

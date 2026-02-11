@@ -76,6 +76,9 @@ resource "google_container_cluster" "cluster" {
     gcp_filestore_csi_driver_config {
       enabled = var.addons.gcp_filestore_csi_driver_config.enabled
     }
+    gke_backup_agent_config {
+      enabled = var.addons.gke_backup_agent_config
+    }
   }
 
   maintenance_policy {
