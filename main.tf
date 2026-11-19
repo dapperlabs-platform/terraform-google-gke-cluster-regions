@@ -35,7 +35,9 @@ resource "google_container_cluster" "cluster" {
     }
   }
   # Terraform specific config
-  deletion_protection = var.primary_cluster
+  # var.deletion_protection is null by default so that existing callers keep
+  # deriving this from var.primary_cluster, unchanged.
+  deletion_protection = var.deletion_protection == null ? var.primary_cluster : var.deletion_protection
 
   # Auth config
   authenticator_groups_config {
