@@ -152,6 +152,21 @@ variable "primary_cluster" {
   default     = false
 }
 
+variable "deletion_protection" {
+  type        = bool
+  description = <<EOF
+  Whether google_container_cluster.deletion_protection is enabled. Leave null (the
+  default) to keep the historical behaviour of deriving it from var.primary_cluster.
+
+  The two are unrelated concerns: primary_cluster selects which region owns the
+  workloadIdentityUser IAM bindings, while deletion_protection guards the cluster
+  against deletion. Deriving one from the other means a cluster can only be made
+  deletable by also dropping its workload-identity bindings. Set this explicitly
+  when a cluster has to be destroyed without disturbing those bindings.
+  EOF
+  default     = null
+}
+
 variable "master_global_access_config" {
   description = "Enable master global access config."
   type        = bool
